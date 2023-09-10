@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <title>Decryption Page</title>
+  </head>
+  <body>
+    <header>
+      <h1>Decryption Page</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/encrypt">Encrypt</a></li>
+        <li><a href="/decrypt">Decrypt</a></li>
+      </ul>
+    </nav>
+    <main>
+      <section class="decryption-section">
+        <h2>Decrypt Text</h2>
+        <form method="POST">
+          <label for="user_input">Enter text to decrypt:</label>
+          <textarea
+            name="user_input"
+            id="user_input"
+            rows="4"
+            cols="50"
+          ></textarea>
+          <button type="submit">Decrypt</button>
+        </form>
+        {% if user_input %}
+        <div class="result">
+          <h3>Decrypted Text:</h3>
+          <p>{{ decrypted_text }}</p>
+        </div>
+        {% endif %}
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2023 Your Name</p>
+    </footer>
+  </body>
+</html>

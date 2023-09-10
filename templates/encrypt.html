@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Encryption Page</title>
+</head>
+<body>
+    <header>
+        <h1>Encryption Page</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/encrypt">Encrypt</a></li>
+            <li><a href="/decrypt">Decrypt</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="encryption-section">
+            <h2>Encrypt Text</h2>
+            <form method="POST">
+                <label for="user_input">Enter text to encrypt:</label>
+                <textarea name="user_input" id="user_input" rows="4" cols="50"></textarea>
+                <button type="submit">Encrypt</button>
+            </form>
+            {% if user_input %}
+                <div class="result">
+                    <h3>Encrypted Text:</h3>
+                    <p>{{ encrypted_text }}</p>
+                </div>
+            {% endif %}
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Harsh Parmar</p>
+    </footer>
+</body>
+</html>
